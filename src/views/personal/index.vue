@@ -3,11 +3,11 @@
     <el-col :span="8">
       <el-card class="box-card personal-card">
         <el-avatar :size="100" style="vertical-align: top;" src="src/assets/images/avatar.jpg" />
-        <div class="flex-column" style="margin-left:30px;height:100px">
+        <!-- <div class="flex-column" style="margin-left:30px;height:100px">
           <p style="display:block"><span>姓名:</span><span>{{ exhibit.name }}</span></p>
           <p style="display:block"><span>年龄:</span><span>{{ exhibit.age }}</span></p>
           <p style="display:block"><span>性别:</span><span>{{ exhibit.sex }}</span></p>
-        </div>
+        </div> -->
         <el-divider />
       </el-card>
     </el-col>
@@ -21,12 +21,7 @@
             <el-input v-model="form.age"></el-input>
           </el-form-item>
           <el-form-item label="性别">
-            <el-select v-model="form.sex" style="width:100%">
-              <el-option v-for="(val, key) in sexList" :key="key" :label="val" :value="key"></el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="性别">
-            <el-button @click="handleClick">保存</el-button>
+            <Select enum="sexEnum" v-model="form.sex" @change="handleChange"></Select>
           </el-form-item>
         </el-form>
       </el-card>
@@ -35,31 +30,22 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from "vue";
-const sexList = {
-  0: "女",
-  1: "男",
-  3: "不详",
-}
+import { ref } from "vue";
 interface sexFormat {
   name: string,
   age: number,
   sex: number
 }
-const form = ref(init())
-const exhibit: sexFormat = reactive(init())
-const handleClick = () => {
-  const { name, sex, age } = form.value
-  exhibit.name = name;
-  exhibit.age = age;
-  exhibit.sex = sexList[sex];
-}
-function init() {
+const form = ref<sexFormat>(init())
+function init():sexFormat {
   return {
-    name: "",
-    age: null,
-    sex: null
+    name: "北小鱼",
+    age: 18,
+    sex: 1
   }
+}
+function handleChange(val:number) {
+  console.log(form.value.sex);
 }
 </script>
 

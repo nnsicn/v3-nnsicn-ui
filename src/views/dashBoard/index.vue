@@ -1,12 +1,10 @@
 <template>
-    <div>
-        <!-- <enum /> -->12
-    </div>
+        <Select enum="sexEnum" v-model="selectedValue"></Select>
 </template>
 
 <script setup lang="ts">
-// import enum from "../../components/input/enum.vue";
-// components: { enum }
+import { ref } from "vue";
+let selectedValue = ref<number>(1);
 </script>
 
 <style scoped></style>
