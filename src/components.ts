@@ -8,5 +8,34 @@ const components: componentsFormat = {
     "enum-select":enumSelect,
     draggable
 }
+let comps = {
+    draggable
+}
+const modules = import.meta.globEager('./components/**/*.vue')
+console.log(modules);
+for (const path in modules) {
+    console.log("path",path);
+    let cname = modules[path].default.name
+    console.log(cname);
+    
+    comps[cname] = modules[path].default
+}
+console.log(comps);
+console.log(components);
 
-export default components
+export default comps
+
+// let comps = {}
+
+// const modules = import.meta.globEager('./**/*.vue')
+// console.log(modules);
+
+// for (const path in modules) {
+//   console.log("path",path);
+//   let cname = modules[path].default.name
+//   console.log(cname);
+  
+//   comps[cname] = modules[path].default
+// }
+
+// export default comps

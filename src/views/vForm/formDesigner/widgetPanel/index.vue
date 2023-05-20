@@ -22,7 +22,7 @@
                             :sort="false" :group="{ name: 'dragGroup', pull: 'clone', put: false }" :clone="handleContainerWidgetClone"
                            :move="checkContainerMove" @end="onContainerDragEnd">
                             <template #item="{ element: fld }">
-                                <li class="field-widget-item" @dblclick="addFieldByDbClick(fld)">{{ fld.type }}</li>
+                                <li class="field-widget-item" @dblclick="addFieldByDbClick(fld)">{{ fld.name }}</li>
                             </template>
                         </draggable>
                     </el-collapse-item>

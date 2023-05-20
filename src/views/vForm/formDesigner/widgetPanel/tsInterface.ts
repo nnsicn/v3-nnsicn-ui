@@ -42,6 +42,7 @@ interface optionsFormat{
 export interface basicFormat
     {
         type?: string,
+        name:string,
         icon?: string,
         formItemFlag?: boolean,
         options?: optionsFormat,

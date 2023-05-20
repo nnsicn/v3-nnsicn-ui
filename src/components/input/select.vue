@@ -3,7 +3,11 @@
         <el-option v-for="option in options" :value="option.value" :label="option.key"></el-option>
     </el-select>
 </template>
-
+<script lang="ts">
+export default {
+    name:"enum-select"
+}
+</script>
 <script setup lang="ts">
 import { ref, computed, } from "vue";
 import { enumList } from "../../ENUM";
