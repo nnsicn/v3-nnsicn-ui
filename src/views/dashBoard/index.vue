@@ -1,5 +1,5 @@
 <template>
-        <Select enum="sexEnum" v-model="selectedValue"></Select>
+        <enum-select enum="sexEnum" v-model="selectedValue"></enum-select>
 </template>
 
 <script setup lang="ts">

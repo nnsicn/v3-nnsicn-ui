@@ -17,6 +17,19 @@ export const routes = [
     ],
   },
   {
+    path: "/vForm",
+    // component: Layout,
+    meta: { title: "vForm", icon: "el-icon-platform-eleme" },
+    children: [
+      {
+        path: "dashBoard",
+        component: () => import("../views/vForm/index.vue"),
+        meta: { title: "vForm", icon: "el-icon-platform-eleme" },
+        hidden: false,
+      },
+    ],
+  },
+  {
     path: "/iconfont",
     component: Layout,
     meta: { title: "iconfont", icon: "el-icon-platform-eleme" },

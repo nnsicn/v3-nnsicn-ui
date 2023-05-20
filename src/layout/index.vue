@@ -1,5 +1,5 @@
 <template>
-    <div class="common-layout">
+    <div class="common-layout layout-index">
       <el-container>
         <el-aside width="200px">
           <el-menu class="sidebar-menu" router>
@@ -58,7 +58,7 @@
   </script>
   
   <style lang="scss">
-  .common-layout {
+  .layout-index {
     height: 100% !important;
     .el-header {
       padding: 0;
