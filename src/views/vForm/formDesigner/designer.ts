@@ -1,5 +1,5 @@
 import type { basicFormat } from "./widgetPanel/tsInterface";
-import { uniqId } from "./utils/idnex"
+import { uniqId } from "./utils/index"
 import _ from "lodash";
 export class CreateDesigner {
     static createDesigner = new CreateDesigner();
@@ -41,9 +41,9 @@ export class CreateDesigner {
         //     this.widgetList.push(newWidget)
         // }
 
-        // this.setSelected(newWidget)
+        this.setSelected(newWidget)
         // this.emitHistoryChange()
-        this.widgetList.push(widget)
+        this.widgetList.push(newWidget)
     }
     // 深拷贝
     protected copyNewFieldWidget(widget: basicFormat) {
