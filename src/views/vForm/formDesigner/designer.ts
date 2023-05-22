@@ -48,7 +48,7 @@ export class CreateDesigner {
     }
     // 深拷贝
     protected copyNewFieldWidget(widget: basicFormat) {
-        let newWidget = JSON.parse(JSON.stringify(_.cloneDeep(origin)))
+        let newWidget = JSON.parse(JSON.stringify(_.cloneDeep(widget)))
         let tempId = uniqId()
         newWidget.id = newWidget.type.replace(/-/g, '') + tempId
         newWidget.options.name = newWidget.id
