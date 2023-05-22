@@ -69,7 +69,7 @@ const checkContainerMove = () => {
 }
 // 基础字段item双击
 const addFieldByDbClick = (container:basicFormat) => {
-    designer.addContainerByDbClick(container)
+    designer.addFieldByDbClick(container)
 }
 const handleContainerWidgetClone = (origin:basicFormat) => {
     console.log(origin);

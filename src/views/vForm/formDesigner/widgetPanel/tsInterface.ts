@@ -45,5 +45,6 @@ export interface basicFormat
         name:string,
         icon?: string,
         formItemFlag?: boolean,
-        options?: optionsFormat,
+        options: optionsFormat,
+        id?:string
 }
