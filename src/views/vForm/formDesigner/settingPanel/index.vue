@@ -6,26 +6,29 @@
                     <span class="mr-5">组件设置</span>
                     <i class="iconfont icon-htmlbianjiqi"></i>
                 </template>
-                <el-collapse v-model="collapseName">
-                    <el-collapse-item title="Consistency" name="1">
-                        <template #title>
-                            <strong class="mr-5">常见属性</strong>
-                            <i class="iconfont icon-htmlbianjiqi"></i>
-                        </template>
-                    </el-collapse-item>
-                    <el-collapse-item title="Consistency" name="2">
-                        <template #title>
-                            <strong class="mr-5">高级属性</strong>
-                            <i class="iconfont icon-htmlbianjiqi"></i>
-                        </template>
-                    </el-collapse-item>
-                    <el-collapse-item title="Consistency" name="3">
-                        <template #title>
-                            <strong class="mr-5">事件属性</strong>
-                            <i class="iconfont icon-htmlbianjiqi"></i>
-                        </template>
-                    </el-collapse-item>
-                </el-collapse>
+                <el-form :model="optionModel" size="small" label-position="left" label-width="120px" class="setting-form"
+                    @submit.prevent>
+                    <el-collapse v-model="collapseName">
+                        <el-collapse-item title="Consistency" name="1">
+                            <template #title>
+                                <strong class="mr-5">常见属性</strong>
+                                <i class="iconfont icon-htmlbianjiqi"></i>
+                            </template>
+                        </el-collapse-item>
+                        <el-collapse-item title="Consistency" name="2">
+                            <template #title>
+                                <strong class="mr-5">高级属性</strong>
+                                <i class="iconfont icon-htmlbianjiqi"></i>
+                            </template>
+                        </el-collapse-item>
+                        <el-collapse-item title="Consistency" name="3">
+                            <template #title>
+                                <strong class="mr-5">事件属性</strong>
+                                <i class="iconfont icon-htmlbianjiqi"></i>
+                            </template>
+                        </el-collapse-item>
+                    </el-collapse>
+                </el-form>
             </el-tab-pane>
         </el-scrollbar>
         <el-tab-pane label="Config" name="formLib">
@@ -38,9 +41,24 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
+let props = defineProps<{
+    designer: object,
+    selectedWidget: object,
+    formConfig: object,
+    globalDsv: object,
+}>()
 let tabName = ref<string>("componentLib")
-let collapseName = ref<Array<string>>(["1","2","3"])
+let collapseName = ref<Array<string>>(["1", "2", "3"])
+let optionModel = computed({
+    get() {
+        // return props.selectedWidget.options
+    },
+
+    set(newValue) {
+        // props.selectedWidget.options = newValue
+    }
+})
 </script>
 <style lang="scss">
 .widget-panel-index {

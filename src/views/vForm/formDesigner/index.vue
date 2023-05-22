@@ -9,7 +9,8 @@
                 <form-canvas :designer="designer"></form-canvas>
             </el-main>
             <el-aside>
-                <setting-panel></setting-panel>
+                <setting-panel :designer="designer" :selected-widget="designer.selectedWidget"
+                       :form-config="designer.formConfig" :global-dsv="globalDsv"></setting-panel>
             </el-aside>
         </el-container>
     </div>
@@ -23,9 +24,13 @@ import formCanvas from "./formCanvas/index.vue"
 import settingPanel from "./settingPanel/index.vue";
 // import {createDesigner} from "./designer"
 import createDesigner from "./designer"
+let props = defineProps<{
+    globalDsv:object
+}>()
+let globalDsv = ref(props.globalDsv)
 let designer = ref(createDesigner)
 const handleClick =()=>{
-    console.log(createDesigner);
+    // console.log(createDesigner);
     
 }
 

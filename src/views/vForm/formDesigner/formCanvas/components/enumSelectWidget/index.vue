@@ -1,24 +1,29 @@
 <template>
-    <enum-select></enum-select>
+    <form-item-wrapper :designer="designer" :field="field" :rules="rules" :design-state="designState"
+        :parent-widget="parentWidget" :sub-form-row-index="subFormRowIndex">
+        <enum-select enum="sexEnum"></enum-select>
+    </form-item-wrapper>
 </template>
 
 
 <script setup lang="ts">
-const props = defineProps<{
-    field:any,
-    designer:any,
-    key:any,
-    parentList:any,
-    indexOfParentList:any,
-    parentWidget:any,
-    designState:boolean
-}>()
+import { ref } from "vue"
+import FormItemWrapper from '../formItemWrapper/index.vue'
+const props = withDefaults(defineProps<{
+    field: any,
+    designer: any,
+    key: any,
+    parentList: any,
+    indexOfParentList: any,
+    parentWidget: any,
+    designState: boolean,
+    subFormRowIndex: any
+}>(), { subFormRowIndex: -1 })
+let rules = ref<Array<object>>([])
 </script>
 <script lang="ts">
 export default {
-    name:"enum-select-widget"
+    name: "enum-select-widget"
 }
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>

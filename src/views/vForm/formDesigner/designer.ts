@@ -1,13 +1,14 @@
 import type { basicFormat } from "./widgetPanel/tsInterface";
 import { uniqId } from "./utils/index"
 import _ from "lodash";
+import eventBus from "../utils/event-bus"
 export class CreateDesigner {
     static createDesigner = new CreateDesigner();
     widgetList: Array<basicFormat> = [];
     formConfig = { cssCode: '' };
 
     selectedId:string = "";
-    selectedWidget:basicFormat = {} as basicFormat;
+    selectedWidget: null | object = null;
     selectedWidgetName:string|undefined = "";  //选中组件名称（唯一）
     // vueInstance= vueInstance;
 
@@ -67,6 +68,18 @@ export class CreateDesigner {
             this.selectedId = selected.id
             this.selectedWidgetName = selected.options.name
         }
+    }
+    // 清空选中组件
+    clearSelected() {
+        this.selectedId = ""
+        this.selectedWidgetName = ""
+        this.selectedWidget = {}  //this.selectedWidget = null
+    }
+    protected emitEvent(evtName: any, evtData: any) {  //用于兄弟组件发射事件
+        eventBus.$emit(evtName, evtData)
+    }
+    protected handleEvent(evtName: any, callback: any) {  //用于兄弟组件接收事件
+        eventBus.$on(evtName, (data:any) => callback(data))
     }
 }
 export default CreateDesigner.createDesigner

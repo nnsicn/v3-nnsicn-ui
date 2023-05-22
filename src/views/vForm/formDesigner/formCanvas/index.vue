@@ -19,10 +19,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import type { CreateDesigner } from "../designer"
-
-// import enumSelect from "@/components/input/select.vue"
-// console.log(comps);
-// console.log(enumSelect);
 let props = defineProps<{ designer: object }>()
 let designer: CreateDesigner = ref();
 designer.value = props.designer
@@ -47,6 +43,10 @@ export default{
     .el-main {
         height: 100%;
         background-color: #fff;
+        .el-form{
+            padding: 5px;
+            // height: 100%;
+        }
     }
 }
 </style>
