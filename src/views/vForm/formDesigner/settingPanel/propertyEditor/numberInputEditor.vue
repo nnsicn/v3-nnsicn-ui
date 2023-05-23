@@ -8,7 +8,9 @@
 let props = defineProps<{
     label:string,
     value:string,
-    optionModel:object
+    optionModel:object,
+    designer:object,
+    selectedWidget:object
 }>()
 </script>
 <script lang="ts">

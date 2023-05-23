@@ -2,7 +2,7 @@
     <div class="form-canvas">
         <el-main>
             <el-scrollbar>
-                <el-form>
+                <el-form inline>
                     <draggable :list="designer.widgetList" class="list-group" ghost-class="ghost" item-key="id">
                         <template #item="{ element: item, index }">
                             <component :is="item.type" :field="item" :designer="designer" :key="item.id"

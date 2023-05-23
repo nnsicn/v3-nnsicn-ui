@@ -42,10 +42,18 @@ interface optionsFormat{
   }
 export interface basicFormat
     {
-        type?: string,
+        type: string,
         name:string,
-        icon?: string,
-        formItemFlag?: boolean,
+        icon: string,
+        formItemFlag: boolean,
         options: optionsFormat,
         id?:string
+}
+
+export interface designerFormat{
+  createDesigner?:any;
+  widgetList:Array<basicFormat>,
+  selectedId:string,
+  selectedWidget:basicFormat|null,
+  addFieldByDbClick:(widget:basicFormat)=>void
 }

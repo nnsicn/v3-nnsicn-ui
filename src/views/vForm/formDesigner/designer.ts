@@ -1,14 +1,14 @@
-import type { basicFormat } from "./widgetPanel/tsInterface";
+import type { basicFormat,designerFormat } from "./widgetPanel/tsInterface";
 import { uniqId } from "./utils/index"
 import _ from "lodash";
 import eventBus from "../utils/event-bus"
-export class CreateDesigner {
+export class CreateDesigner implements designerFormat {
     static createDesigner = new CreateDesigner();
-    widgetList: Array<basicFormat> = [];
+    widgetList:Array<basicFormat> = [];
     formConfig = { cssCode: '' };
 
-    selectedId:string = "";
-    selectedWidget: null | object = {};
+    selectedId = "";
+    selectedWidget = {} as basicFormat;
     selectedWidgetName:string|undefined = "";  //选中组件名称（唯一）
     // vueInstance= vueInstance;
 
@@ -21,9 +21,15 @@ export class CreateDesigner {
         maxStep: 20,
         steps: [],
     }
+    // 删除选中的组件
+    protected deleteComponent(){
+        if(this.selectedId){
+            this.widgetList.find((t:basicFormat)=>t.id==this.selectedId)
+        }
+    }
     // 基础字段添加到画布
     protected addFieldByDbClick(widget: basicFormat) {
-        let newWidget = this.copyNewFieldWidget(widget)
+        let newWidget:basicFormat = this.copyNewFieldWidget(widget)
         // if (!!this.selectedWidget && this.selectedWidget.type === 'tab') {
         //     //获取当前激活的tabPane
         //     let activeTab = this.selectedWidget.tabs[0]
@@ -73,7 +79,7 @@ export class CreateDesigner {
     clearSelected() {
         this.selectedId = ""
         this.selectedWidgetName = ""
-        this.selectedWidget = {}  //this.selectedWidget = null
+        this.selectedWidget = {} as basicFormat  //this.selectedWidget = null
     }
     protected emitEvent(evtName: any, evtData: any) {  //用于兄弟组件发射事件
         eventBus.$emit(evtName, evtData)
@@ -83,29 +89,3 @@ export class CreateDesigner {
     }
 }
 export default CreateDesigner.createDesigner
-// export function createDesigner() {
-//     return {
-//         widgetList: [],
-//         formConfig: { cssCode: '' },
-
-//         selectedId: null,
-//         selectedWidget: null,
-//         selectedWidgetName: null,  //选中组件名称（唯一）
-//         // vueInstance: vueInstance,
-
-//         formWidget: null,  //表单设计容器
-
-//         cssClassList: [],  //自定义样式列表
-
-//         historyData: {
-//             index: -1,  //index: 0,
-//             maxStep: 20,
-//             steps: [],
-//         },
-//         addContainerByDbClick(container) {
-//             // let newCon = this.copyNewContainerWidget(container)
-//             this.widgetList.push(container)
-//             // this.setSelected(newCon)
-//         }
-//     }
-// }

@@ -5,7 +5,7 @@
                 <widget-panel :designer="designer"></widget-panel>
             </el-aside>
             <el-main @click="handleClick">
-                <toolbar-panel></toolbar-panel>
+                <toolbar-panel :designer="designer"></toolbar-panel>
                 <form-canvas :designer="designer"></form-canvas>
             </el-main>
             <el-aside>

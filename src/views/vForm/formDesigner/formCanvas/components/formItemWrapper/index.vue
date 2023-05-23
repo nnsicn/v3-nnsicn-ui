@@ -3,7 +3,7 @@
         <el-form-item :label="label" :label-width="labelWidth + 'px'" :prop="getPropName()" @click="selectField">
             <template #label>
                 <span>{{ label1 }}</span>
-                {{ label }}
+                <i v-show="!props.field.options.labelHidden">{{ label }}</i>
             </template>
             <slot></slot>
         </el-form-item>
@@ -72,6 +72,7 @@ export default {
 
 <style lang="scss">
 .form-item-wrapper {
+    display: inline-block;
     position: relative;
     // width: 200px;
     border: 1px solid #000;
