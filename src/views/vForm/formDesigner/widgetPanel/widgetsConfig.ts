@@ -9,6 +9,7 @@ export const basicFields: Array<basicFormat> = [
       name: '',
       label: '',
       labelAlign: '',
+      width:300,
       defaultValue: null,
       columnWidth: '200px',
       size: '',
@@ -48,6 +49,7 @@ export const basicFields: Array<basicFormat> = [
     options: {
       name: '',
       label: '',
+      width:300,
       labelAlign: '',
       defaultValue: null,
       columnWidth: '200px',

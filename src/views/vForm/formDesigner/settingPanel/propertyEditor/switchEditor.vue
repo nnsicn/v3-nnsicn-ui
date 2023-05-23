@@ -1,6 +1,6 @@
 <template>
-<el-form-item :prop="props.value" :label="props.label" :rules="nameRequiredRule">
-    <el-input v-model="optionModel.label"></el-input>
+<el-form-item :prop="props.value" :label="props.label">
+    <el-switch v-model="optionModel.label"></el-switch>
 </el-form-item>
 </template>
 
@@ -10,11 +10,10 @@ let props = defineProps<{
     value:string,
     optionModel:object
 }>()
-let nameRequiredRule = [{ required: true, message: 'name required' }]
 </script>
 <script lang="ts">
 export default {
-    name:"text-input-editor"
+    name:"switch-editor"
 }
 </script>
 
