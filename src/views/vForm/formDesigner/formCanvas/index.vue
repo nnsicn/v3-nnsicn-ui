@@ -27,8 +27,8 @@ designer.value = props.designer
 </script>
 <script lang="ts">
 import comps from "./components/index"
-export default{
-    components:{
+export default {
+    components: {
         ...comps
     }
 }
@@ -43,7 +43,8 @@ export default{
     .el-main {
         height: 100%;
         background-color: #fff;
-        .el-form{
+
+        .el-form {
             padding: 5px;
             // height: 100%;
         }

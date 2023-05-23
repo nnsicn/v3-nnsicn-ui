@@ -1,5 +1,5 @@
 <template>
-    <el-select v-model="currentValue" class="m-2" placeholder="Select" @change="handleChange">
+    <el-select v-model="currentValue" :disabled="disabled" class="m-2" placeholder="Select" @change="handleChange">
         <el-option v-for="option in options" :value="option.value" :label="option.key"></el-option>
     </el-select>
 </template>
@@ -20,6 +20,10 @@ const props = defineProps({
     value: {
         type: Number,
         default: null
+    },
+    disabled:{
+        type:Boolean,
+        default:false
     }
 })
 let currentValue = ref<number | string>(props.value)

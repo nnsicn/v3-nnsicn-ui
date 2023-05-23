@@ -1,7 +1,7 @@
 <template>
     <form-item-wrapper :designer="designer" :field="field" :rules="rules" :design-state="designState"
         :parent-widget="parentWidget" :sub-form-row-index="subFormRowIndex">
-        <enum-select enum="sexEnum"></enum-select>
+        <enum-select enum="sexEnum" :disabled="options.disabled"></enum-select>
     </form-item-wrapper>
 </template>
 
@@ -19,6 +19,7 @@ const props = withDefaults(defineProps<{
     designState: boolean,
     subFormRowIndex: any
 }>(), { subFormRowIndex: -1 })
+let options=props.field.options
 let rules = ref<Array<object>>([])
 </script>
 <script lang="ts">

@@ -9,9 +9,9 @@
         <template v-if="!!designer.selectedWidget&&!!designer.selectedWidget.type">
           <el-form
             :model="optionModel"
-            size="small"
+            size="default"
             label-position="left"
-            label-width="120px"
+            label-width="90px"
             class="setting-form"
             @submit.prevent
           >
@@ -93,7 +93,7 @@ export default {
 
 <style lang="scss">
 .widget-panel-index {
-  padding-left: 10px;
+  padding-right: 10px;
   height: 100%;
 
   // tab标题
@@ -112,6 +112,11 @@ export default {
   // tab主体
   .el-tabs__content {
     height: calc(100% - 40px);
+    .el-form{
+      .el-form-item{
+        margin-bottom: 10px;
+      }
+    }
   }
 }
 </style>
