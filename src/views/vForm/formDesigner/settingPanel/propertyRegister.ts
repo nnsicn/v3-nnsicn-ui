@@ -5,6 +5,8 @@
  */
 export const BASIC_ATTRIBUTES={
     name:"text-input-editor",
+    label:"text-input-editor",
+    labelWidth:"number-input-editor",
     width:"number-input-editor",
     height:"number-input-editor",
     disabled:"switch-editor"

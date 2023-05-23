@@ -2,7 +2,7 @@
     <div class="form-item-wrapper" :style="{width:width+'px'}">
         <el-form-item :label="label" :label-width="labelWidth + 'px'" :prop="getPropName()" @click="selectField">
             <template #label>
-                <span :style="{ width: labelWidth + 'px' }">{{ label }}</span>
+                <span>{{ label1 }}</span>
                 {{ label }}
             </template>
             <slot></slot>
@@ -43,6 +43,7 @@ let label = computed(() => {
     }
     return props.field.options.label
 })
+let label1 = props.field.options.label
 let labelWidth = computed(() => {
     if (!!props.field.options.labelHidden) {
         return 0
@@ -82,6 +83,7 @@ export default {
                 top: 0;
                 left: 0;
                 height: 20px;
+                padding: 0px 5px;
                 background-color: #409EFF;
                 cursor: move;
                 color: #fff;

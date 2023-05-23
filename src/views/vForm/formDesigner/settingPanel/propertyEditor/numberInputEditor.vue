@@ -1,6 +1,6 @@
 <template>
 <el-form-item :prop="props.value" :label="props.label">
-    <el-input v-model="optionModel.label" type="number"></el-input>
+    <el-input v-model="props.optionModel[props.label]" type="number"></el-input>
 </el-form-item>
 </template>
 

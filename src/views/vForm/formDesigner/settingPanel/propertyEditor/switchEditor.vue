@@ -1,6 +1,6 @@
 <template>
 <el-form-item :prop="props.value" :label="props.label">
-    <el-switch v-model="optionModel.label"></el-switch>
+    <el-switch v-model="props.optionModel[props.label]"></el-switch>
 </el-form-item>
 </template>
 

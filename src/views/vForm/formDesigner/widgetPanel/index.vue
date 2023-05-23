@@ -109,13 +109,13 @@ let collapseName = ref<Array<string>>(["1"]);
 
                     li {
                         display: inline-block;
+                        margin: 0px 5% 5% 0;
+                        padding-left: 5px;
                         width: 45%;
                         height: 33px;
                         line-height: 33px;
                         border: 1px solid #e8e9eb;
                         border-radius: 4px;
-                        padding-left: 5px;
-                        margin-right: 5%;
                         cursor: move;
                         user-select: none;
                     }

@@ -98,7 +98,7 @@ export const basicFields: Array<basicFormat> = [
       displayStyle: 'inline',
       buttonStyle: false,
       border: false,
-      labelWidth: 50,
+      labelWidth: 80,
       labelHidden: false,
       disabled: false,
       hidden: false,
