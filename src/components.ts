@@ -20,8 +20,6 @@ for (const path in modules) {
     
     comps[cname] = modules[path].default
 }
-console.log(comps);
-console.log(components);
 
 export default comps
 

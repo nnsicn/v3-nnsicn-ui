@@ -8,7 +8,7 @@ export class CreateDesigner {
     formConfig = { cssCode: '' };
 
     selectedId:string = "";
-    selectedWidget: null | object = null;
+    selectedWidget: null | object = {};
     selectedWidgetName:string|undefined = "";  //选中组件名称（唯一）
     // vueInstance= vueInstance;
 
