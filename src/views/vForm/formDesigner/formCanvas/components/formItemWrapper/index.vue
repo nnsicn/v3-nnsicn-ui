@@ -1,6 +1,6 @@
 <template>
     <div class="form-item-wrapper" :style="{width:width+'px'}">
-        <el-form-item :label="label" :label-width="labelWidth + 'px'" :prop="getPropName()" @click="selectField">
+        <el-form-item :label="label" :label-width="labelWidth + 'px'" :prop="getPropName()" @click="selectField" :class="[selected?'selected':'']">
             <template #label>
                 <span>{{ label1 }}</span>
                 <i v-show="!props.field.options.labelHidden">{{ label }}</i>
@@ -63,6 +63,9 @@ let width = computed(() => {
 let subFormItemFlag = computed(() => {
     return !!props.parentWidget ? props.parentWidget.type === 'sub-form' : false
 })
+let selected = computed(() => {
+    return props.designer && props.field.id === props.designer.selectedId;
+})
 </script>
 <script lang="ts">
 export default {
@@ -74,12 +77,16 @@ export default {
 .form-item-wrapper {
     display: inline-block;
     position: relative;
-    // width: 200px;
-    border: 1px solid #000;
+    width: fit-content;
+    // dotted:点状  dashed:虚线   solid:实线
+    &.selected{
+        outline:1px dashed #000;
+    }
 
     .el-form-item {
         .el-form-item__label {
             span {
+                display: none;
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -95,6 +102,9 @@ export default {
                 &:hover {
                     opacity: .7;
                 }
+            }
+            span:hover{
+                display: block;
             }
         }
     }

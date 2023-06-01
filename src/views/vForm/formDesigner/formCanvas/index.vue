@@ -2,7 +2,7 @@
     <div class="form-canvas">
         <el-main>
             <el-scrollbar>
-                <el-form inline>
+                <el-form inline :model="formModel">
                     <draggable :list="designer.widgetList" class="list-group" ghost-class="ghost" item-key="id">
                         <template #item="{ element: item, index }">
                             <component :is="item.type" :field="item" :designer="designer" :key="item.id"
@@ -21,6 +21,7 @@ import { ref, watch } from "vue";
 import type { CreateDesigner } from "../designer"
 let props = defineProps<{ designer: object }>()
 let designer: CreateDesigner = ref();
+let formModel:any = ref({});
 designer.value = props.designer
 
 
