@@ -2,7 +2,7 @@
     <div class="form-canvas">
         <el-main>
             <el-scrollbar>
-                <el-form inline :model="formModel">
+                <el-form inline label-position="top">
                     <draggable :list="designer.widgetList" class="list-group" ghost-class="ghost" item-key="id">
                         <template #item="{ element: item, index }">
                             <component :is="item.type" :field="item" :designer="designer" :key="item.id"
@@ -17,14 +17,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { ref, watch,provide } from "vue";
 import type { CreateDesigner } from "../designer"
 let props = defineProps<{ designer: object }>()
 let designer: CreateDesigner = ref();
 let formModel:any = ref({});
 designer.value = props.designer
 
-
+provide('globalModel', {formModel})
 </script>
 <script lang="ts">
 import comps from "./components/index"
