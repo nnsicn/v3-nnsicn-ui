@@ -30,6 +30,19 @@ export const routes = [
     ],
   },
   {
+    path: "/table",
+    // component: Layout,
+    meta: { title: "Table", icon: "el-icon-platform-eleme" },
+    children: [
+      {
+        path: "index",
+        component: () => import("../views/table/index.vue"),
+        meta: { title: "Table", icon: "el-icon-platform-eleme" },
+        hidden: false,
+      },
+    ],
+  },
+  {
     path: "/iconfont",
     component: Layout,
     meta: { title: "iconfont", icon: "el-icon-platform-eleme" },
