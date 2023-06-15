@@ -1,13 +1,9 @@
 <template>
-    <div>
-        <jy-table></jy-table>
-    </div>
+    <jy-table></jy-table>
 </template>
 
 <script setup lang="ts">
 
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
